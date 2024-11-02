@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: healthcareDB
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    ports:
+      - "5432:5432"
+    volumes:
+      # - healthcare_data:/var/lib/postgresql/data #(not using volume until I get this working correctly)
+      # Optional: Mount a directory for initialization scripts
+      # This docker-entrypoint will run any scripts within the ./src/database directory in alpha-numeric order.
+      - ./src/database:/docker-entrypoint-initdb.d
+    networks:
+      - app_network
+
+
+#volumes:
+  #postgres_data:
+
+networks:
+  app_network:
+    driver: bridge

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+*.so
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+go.sum
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# Environment
+.env
+*.log
+
+# Database
+*.db
+*.sqlite
+
+# OS specific
+.DS_Store
+Thumbs.db
